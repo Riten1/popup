@@ -1,27 +1,23 @@
-import { useState } from "react"
-import Model from "./model/Model"
-
+import { useState } from "react";
+import Model from "./model/Model";
 
 function App() {
+  const [popModel, setPopModel] = useState(false);
 
-  const [popModel, setPopModel] = useState(false)
-
-  function handleToggle () {
-    setPopModel(!popModel)
+  function handleToggle() {
+    setPopModel(!popModel);
   }
 
   function closeFun() {
-    setPopModel(false)
+    setPopModel(false);
   }
 
   return (
     <div>
       <button onClick={handleToggle}>Login</button>
-      
-      {
-        popModel && <Model closeFun={closeFun}/>
-      }
-       <p>
+
+      {popModel && <Model closeFun={closeFun} handleToggle={handleToggle} />}
+      <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit,
         laudantium laborum voluptas officiis nisi nesciunt numquam autem ipsa
         cumque officia omnis quos iure eveniet accusamus iste consequuntur?
@@ -123,7 +119,7 @@ function App() {
       <br />
       <br />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
